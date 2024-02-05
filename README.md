@@ -1,4 +1,4 @@
-# DESCADERIAS PIURA FISH 
+# PESCADERIAS PIURA FISH 
 
 ## Descripción
 
@@ -6,16 +6,15 @@ Esta es una aplicación de React que se utiliza para la gestión de ventas. Perm
 
 ## Características
 
-- **Realizar ventas:** Permite a los usuarios realizar ventas de productos.
-- **Gestión de productos:** Los usuarios pueden crear, editar y eliminar productos.
 - **Análisis de datos:** Proporciona gráficos para analizar el rendimiento de las ventas.
+- **Gestión de productos:** Los usuarios pueden crear, editar y eliminar productos.
 - **Gestión de ventas:** Ayuda a los usuarios a gestionar y rastrear las ventas.
 
 ## Instalación
 
 Para instalar y ejecutar esta aplicación, sigue estos pasos:
 
-1. Clona el repositorio: `git clone https://github.com/usuario/repositorio.git`
+1. Clona el repositorio: `git clone https://github.com/inforux/pescaderias.git`
 2. Instala las dependencias: `npm install`
 3. Ejecuta la aplicación: `npm start`
 
