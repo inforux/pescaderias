@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    background-color: #ebf8ff; /* bg-blue-100 */
+    padding: 5px;
+}
+
+.pagination__link {
+    margin: 0 15px; /* Aumenta la separación a 15px en el eje x */
+    color: #718096; /* Gray 500 */
+    font-weight: 400; /* Normal */
+}
+
+.page-link {
+    margin: 0 10px; /* Aumenta la separación a 15px en el eje x */
+}
+
+.pagination__link--active,
+.pagination__link--disabled {
+    color: #2d3748; /* Gray 800 */
+    font-weight: 700; /* Bold */
+}
