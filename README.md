@@ -10,6 +10,17 @@ Esta es una aplicación de React que se utiliza para la gestión de ventas. Perm
 - **Gestión de productos:** Los usuarios pueden crear, editar y eliminar productos.
 - **Gestión de ventas:** Ayuda a los usuarios a gestionar y rastrear las ventas.
 
+## Capturas de pantalla
+
+### Listado de productos
+![Listado de productos](src/images/sc1.jpg)
+
+### Análisis de datos - ventas
+![Análisis de datos - ventas](src/images/sc2.jpg)
+
+### Nueva venta
+![Nueva venta](src/images/sc3.jpg)
+
 ## Instalación
 
 Para instalar y ejecutar esta aplicación, sigue estos pasos:
