@@ -19,6 +19,7 @@ const ListVentas = () => {
     const [dataColumn, setDataColumn] = useState([]);
     const [dataPolar, setDataPolar] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isAnulando, setIsAnulando] = useState(false);
 
 
 const seriesPolar = dataPolar.map(item => parseInt(item.stock));
@@ -165,6 +166,7 @@ const optionsColumn = {
 
     const handleAnularVenta = async () => {
   try {
+    setIsAnulando(true);
     await anularVenta(ventaDetails._id);
     closeModal();
     const result = await fetchVentas();
@@ -310,11 +312,11 @@ const filteredVentas = ventas.filter((venta) => {
         <h2>Detalle de la Venta</h2>
         {ventaDetails && ventaDetails.status !== 0 && (
     <button 
-        className={`text-white flex items-center p-2 ${confirmAnular ? 'bg-red-900' : 'bg-red-600'}`} 
-        onClick={confirmAnular ? handleAnularVenta : () => setConfirmAnular(true)}
-    >
-        <FaTrash /> {confirmAnular ? 'Confirmo anular venta' : 'Anular venta'}
-    </button> 
+    className={`text-white flex items-center p-2 ${confirmAnular ? 'bg-red-900' : 'bg-red-600'}`} 
+    onClick={confirmAnular ? handleAnularVenta : () => setConfirmAnular(true)}
+>
+    <FaTrash /> {confirmAnular ? (isAnulando ? 'Cargando' : 'Confirmo anular venta') : 'Anular venta'}
+</button> 
     )} 
     </div> 
     <hr className="border border-gray-800 my-2" />

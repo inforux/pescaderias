@@ -9,6 +9,7 @@ function NewProduct() {
   const [unidadMedida, setUnidadMedida] = useState("");
   const [precioVenta, setPrecioVenta] = useState("");
   const [unidades, setUnidades] = useState([]);
+  const [buttonText, setButtonText] = useState("Crear producto");
 
   useEffect(() => {
     const fetchUnidades = async () => {
@@ -43,6 +44,7 @@ function NewProduct() {
       unidadMedida,
       precioVenta,
     };
+      setButtonText("Cargando...");
 
     try {
       await createProduct(product); 
@@ -106,7 +108,7 @@ function NewProduct() {
           />
         </label>
         <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md col-span-full md:col-span-2">
-          Crear Producto
+            <span>{buttonText}</span>
         </button>
       </form>
     </div>

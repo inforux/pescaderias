@@ -9,6 +9,7 @@ function EditProduct() {
   const [product, setProduct] = useState(null);
   const [unidades, setUnidades] = useState([]);
   const { id } = useParams();
+  const [buttonText, setButtonText] = useState("Crear producto");
 
   useEffect(() => {
     const getUnidades = async () => {
@@ -40,6 +41,7 @@ function EditProduct() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setButtonText("Cargando...");
 
     try {
       await axios.patch(
@@ -119,7 +121,7 @@ function EditProduct() {
           type="submit"
           className="w-full bg-orange-600 text-white flex items-center justify-center py-2 px-4 rounded"
         >
-          <FaSave /> Guardar Cambios
+          <FaSave /> <span>{buttonText}</span> 
         </button>
       </form>
     </div>

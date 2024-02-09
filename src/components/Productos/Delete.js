@@ -6,6 +6,7 @@ import { FaTrash } from 'react-icons/fa';
 function DeleteProduct() {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
+  const [buttonText, setButtonText] = useState("Eliminar producto");
 
   useEffect(() => {
     const getProduct = async () => {
@@ -23,6 +24,7 @@ function DeleteProduct() {
 
   const handleDelete = async () => {
     try {
+      setButtonText("Cargando...");
       await deleteProduct(id);
       window.location.href = "/products";
     } catch (error) {
@@ -49,7 +51,7 @@ function DeleteProduct() {
             className="bg-red-500 text-white rounded-md px-2 py-1 flex items-center justify-center col-span-2"
           >
             <FaTrash className="h-5 w-5 mr-2" />
-            Eliminar
+           <span>{buttonText}</span> 
           </button>
         </div>
       )}
