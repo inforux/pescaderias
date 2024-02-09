@@ -24,7 +24,7 @@ const ListVentas = () => {
 const seriesPolar = dataPolar.map(item => parseInt(item.stock));
 
 const optionsPolar = {
-    labels: dataPolar.map(item => `${item.name} - ${item.stock} kg`),
+    labels: dataPolar.map(item => `${item.name} - ${parseFloat(item.stock).toFixed(2)} kg`),
     title: {
         text: 'Stock de los 10 productos mas vendidos',
         align: 'left'
@@ -66,7 +66,7 @@ const optionsArea = {
     yaxis: {
         labels: {
             formatter: function (value) {
-                return 's/. ' + value;
+                return 's/. ' + value.toFixed(2);
             }
         }
     }
@@ -99,7 +99,7 @@ const optionsColumn = {
     yaxis: {
         labels: {
             formatter: function (value) {
-                return 'Kg. ' + value;
+                return 'Kg. ' + value.toFixed(2);
             }
         }
     },
