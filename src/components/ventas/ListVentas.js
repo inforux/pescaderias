@@ -20,6 +20,7 @@ const ListVentas = () => {
     const [dataPolar, setDataPolar] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isAnulando, setIsAnulando] = useState(false);
+    const [isVentaLoading, setIsVentaLoading] = useState(false);
 
 
 const seriesPolar = dataPolar.map(item => parseInt(item.stock));
@@ -159,9 +160,11 @@ const optionsColumn = {
     };
 
     const handleEyeClick = async (id) => {
+        setIsVentaLoading(true);
+        setModalIsOpen(true);
         const result = await fetchVenta(id);
         setVentaDetails(result.data);
-        setModalIsOpen(true);
+        setIsVentaLoading(false);
     }; 
 
     const handleAnularVenta = async () => {
@@ -320,7 +323,11 @@ const filteredVentas = ventas.filter((venta) => {
     )} 
     </div> 
     <hr className="border border-gray-800 my-2" />
-{ventaDetails && (
+
+{isVentaLoading ? (
+        <div>Cargando...</div>
+    ) : (
+        ventaDetails && (
     <div>
         <div className="border border-gray-700 p-5 m-5">
             <div className="grid grid-cols-2 gap-4">
@@ -415,7 +422,14 @@ const filteredVentas = ventas.filter((venta) => {
         </table>
     </div> 
     </div>
-)}
+)
+    )}
+
+
+
+
+
+
 </Modal>
             </div>
         </div>

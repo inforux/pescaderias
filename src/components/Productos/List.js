@@ -14,6 +14,8 @@ function List() {
     const [priceFilter, setPriceFilter] = useState('Todos');
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true); 
+    const [isProductLoading, setIsProductLoading] = useState(false);
+
 
 
     const navigate = useNavigate();
@@ -46,9 +48,11 @@ function List() {
 
     const handleProductClick = async (productId) => {
         try {
+            setIsModalOpen(true);
+            setIsProductLoading(true);
             const response = await fetchProduct(productId);
             setSelectedProduct(response.data);
-            setIsModalOpen(true);
+            setIsProductLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -119,12 +123,12 @@ return (
                     return matchesStock && matchesPrice && matchesSearch;
                 }).map((product) => (
                     <tr key={product._id}>
-                        <td className="border px-4 py-2 flex items-center">
+                    <td className="border px-4 py-2 flex items-center">
+                        <button onClick={() => handleProductClick(product._id)} className="text-gray-900 hover:underline font-semibold flex items-center">
                             <FaEye className="text-blue-500 ml-2" />&nbsp;
-                            <button onClick={() => handleProductClick(product._id)} className="text-gray-900 underline hover:underline font-semibold">
-                                {product.name}
-                            </button>
-                        </td>
+                            {product.name}
+                        </button> 
+                    </td> 
                         <td className="border px-4 py-2">{product.codigoBalanza}</td>
                         <td className="border px-4 py-2">{product.stock}</td>
                         <td className="border px-4 py-2">{product.precioVenta}</td>
@@ -147,6 +151,7 @@ return (
                 ))}
             </tbody>
         </table>
+        
         <Modal
             isOpen={isModalOpen}
             onRequestClose={closeModal}
@@ -171,7 +176,9 @@ return (
             <h1 className="text-gray-600 text-xl">Detalle del producto</h1>
             <hr className="border-gray-400 border-t-2 mb-4" />
 
-            {selectedProduct && (
+            {isProductLoading ? (
+                <div>Cargando...</div>
+            ) : selectedProduct && (
                 <div className="border-2 rounded-md border-gray-400 p-5 m-10 mx-auto">
                     <div className="flex flex-wrap">
                         <div className="w-1/2">
@@ -202,12 +209,6 @@ return (
                 </div>
             )}
 
-            <button
-                className="bg-gray-600 text-white w-1/2 mx-auto mt-4 py-2 rounded flex items-center justify-center"
-                onClick={closeModal}
-            >
-                Cerrar Modal
-            </button>
         </Modal>
     </div>
         )}
