@@ -35,6 +35,7 @@ const NewVenta = () => {
     const [alerta, setAlerta] = useState(null);
     const [alertColor, setAlertColor] = useState(null);
     const [counter, setCounter] = useState(10); 
+    const [buttonText, setButtonText] = useState("Vender");
 
 
     useEffect(() => {
@@ -262,6 +263,7 @@ const handleVenderClick = async () => {
         setErrors(newErrors);
 
         if (newErrors.length === 0) {
+                setButtonText("Cargando...");
             const data = {
                 comprobante: selectedComprobante,
                 cliente: selectedCliente.value, 
@@ -461,7 +463,7 @@ const handleVenderClick = async () => {
 <div className="flex flex-col items-end justify-end w-full">
     <button ref={venderRef} onClick={handleVenderClick} className="bg-green-500 text-white rounded-md p-2 w-1/2 flex items-center justify-center space-x-2">
         <FaDollarSign /> {/* Icono de venta */}
-        <span>Vender</span>
+            <span>{buttonText}</span>
     </button>
     {errors.length > 0 && (
         <div className="text-red-500 mt-2 w-1/2">
