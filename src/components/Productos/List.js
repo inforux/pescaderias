@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchProducts, fetchProduct } from '../../services/ProductApi'; 
-import { FaEdit, FaTrash } from 'react-icons/fa'; 
+import { FaEdit, FaTrash, FaEye } from 'react-icons/fa'; 
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root'); 
@@ -119,7 +119,8 @@ return (
                     return matchesStock && matchesPrice && matchesSearch;
                 }).map((product) => (
                     <tr key={product._id}>
-                        <td className="border px-4 py-2">
+                        <td className="border px-4 py-2 flex items-center">
+                            <FaEye className="text-blue-500 ml-2" />&nbsp;
                             <button onClick={() => handleProductClick(product._id)} className="text-gray-900 underline hover:underline font-semibold">
                                 {product.name}
                             </button>
