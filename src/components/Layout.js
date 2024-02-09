@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, Link } from "react-router-dom";
 import {
   FaBars,
   FaUser,
@@ -210,7 +210,11 @@ const navigateUp = () => {
         <div className="flex-grow p-6 bg-white m-5 rounded">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl">{title}</h1>
-             
+            {location.pathname === "/products" && (
+    <Link to="/products/new" className="inline-flex items-center px-4 py-2 bg-green-700 text-white rounded">
+      <FaPlus className="mr-2" /> Nuevo producto
+    </Link>
+  )} 
           </div>
           {children}
         </div>

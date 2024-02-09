@@ -53,7 +53,7 @@ function EditProduct() {
   };
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   return (

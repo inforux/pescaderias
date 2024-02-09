@@ -30,6 +30,10 @@ function DeleteProduct() {
     }
   };
 
+  if (!product) {
+    return <div>Cargando...</div>;
+  }
+
   return (
     <div className="md:border-2 md:border-gray-400 md:rounded p-5 mt-5 w-1/3 mx-auto">
       {product && (

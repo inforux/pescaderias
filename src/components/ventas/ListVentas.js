@@ -18,6 +18,7 @@ const ListVentas = () => {
     const [dataArea, setDataArea] = useState([]);
     const [dataColumn, setDataColumn] = useState([]);
     const [dataPolar, setDataPolar] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
 
 const seriesPolar = dataPolar.map(item => parseInt(item.stock));
@@ -128,6 +129,7 @@ const optionsColumn = {
         const fetchData = async () => {
             const result = await fetchVentas();
             setVentas(result.data);
+            setIsLoading(false);
         };
 
         const fetchDataArea = async () => {
@@ -189,7 +191,11 @@ const filteredVentas = ventas.filter((venta) => {
 });
 
     return (
-        <div>
+<div>
+    {isLoading ? (
+      <div>Cargando...</div>
+    ) : (
+<div>
 
 <div className="border border-gray-700 p-2 mt-2" style={{ width: '100%', display: 'flex' }}>
         <div style={{ width: '30%' }}>
@@ -411,6 +417,10 @@ const filteredVentas = ventas.filter((venta) => {
 </Modal>
             </div>
         </div>
+    )}
+  </div>
+
+        
     );
 };
 
