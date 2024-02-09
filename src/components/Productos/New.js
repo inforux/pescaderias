@@ -52,9 +52,9 @@ function NewProduct() {
     }
   }; 
 
-    return (
-      <div className="md:border-2 md:border-gray-400 md:rounded p-5 mt-5 w-1/3 mx-auto">
-    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+  return (
+    <div className="md:border-2 md:border-gray-400 md:rounded p-5 mt-5 w-full md:w-1/2 lg:w-1/3 mx-auto">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label className="block">
           <span className="text-gray-700">Nombre:</span>
           <input
@@ -105,12 +105,12 @@ function NewProduct() {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
           />
         </label>
-        <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md col-span-2">
+        <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md col-span-full md:col-span-2">
           Crear Producto
         </button>
       </form>
     </div>
-  );
+  ); 
 
 }
 
