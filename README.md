@@ -4,6 +4,13 @@
 
 Esta es una aplicación de React que se utiliza para la gestión de ventas. Permite realizar ventas, crear, editar y eliminar productos. También proporciona análisis de datos con gráficos para ayudar a entender mejor el rendimiento de las ventas.
 
+
+## Demostracion en linea 
+
+Puedes ver una demostración en vivo de la aplicación en https://incandescent-narwhal-48d6e8.netlify.app/. Para acceder, utiliza las siguientes credenciales:
+    Usuario: admin@localhost.com
+    Contraseña: 123456789
+
 ## Características
 
 - **Análisis de datos:** Proporciona gráficos para analizar el rendimiento de las ventas.
