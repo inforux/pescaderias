@@ -37,6 +37,10 @@ function NewProduct() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!name || !codigoBalanza || !stock || !unidadMedida || !precioVenta) {
+    return;
+    }
+
     const product = { 
       name,
       codigoBalanza,

@@ -41,8 +41,12 @@ function EditProduct() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setButtonText("Cargando...");
 
+    if (!product.name || !product.codigoBalanza || !product.stock || !product.unidadMedida || !product.precioVenta) {
+    return;
+    }
+
+    setButtonText("Cargando...");
     try {
       await axios.patch(
         process.env.REACT_APP_API_PESCADERIA + `/products/products/${id}`,
