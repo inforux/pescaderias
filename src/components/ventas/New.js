@@ -306,6 +306,7 @@ const handleVenderClick = async () => {
                 //setSelectedFormaPago('');
                 //setSelectedComprobante('');
                 setErrors([]);
+                setButtonText("Vender");
                 console.log(response.data);
             } else {
                 throw new Error('La venta no se pudo realizar');
